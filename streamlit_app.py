@@ -95,7 +95,7 @@ def predict_price(location, sqft, bath, bhk):
         if loc_index >= 0:
             x[loc_index] = 1
         
-        # Predict the price using the trained model (replace `lr_clf` with your model)
+        # Predict the price using the trained model (replace lr_clf with your model)
         price = model.predict([x])[0]
         return round(price, 2)
     except Exception as e:
@@ -110,9 +110,7 @@ import gradio as gr
 
 # Gradio Interface
 def gradio_predict_price(location, sqft, bath, bhk):
-    return f"Predicted House Price: ₹ {predict_price(location, sqft, bath, bhk)*1
-    
-    000}"
+    return f"Predicted House Price: ₹ {predict_price(location, sqft, bath, bhk)}"
 
 interface = gr.Interface(
     fn=gradio_predict_price,
